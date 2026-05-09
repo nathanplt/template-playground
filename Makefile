@@ -4,23 +4,26 @@ CXXFLAGS = -std=c++17 -Wall -Wextra -pedantic
 TARGET = metaprogramming
 SRC = metaprogramming.cpp
 
+.PHONY: all
 all: $(TARGET)
+
+$(TARGET): $(SRC)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
 
-.PHONY = all
-
+.PHONY: run
 run: $(TARGET)
 	@./$(TARGET)
 
-.PHONY = run
-
+.PHONY: clean
 clean:
 	@rm -f $(TARGET)
 
-.PHONY = clean
+.PHONY: format
+format:
+	@clang-format -i *.cpp
 
+.PHONY: edit
 edit:
 	@vim $(SRC)
 
-.PHONY = edit
 
