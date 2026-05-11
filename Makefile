@@ -1,13 +1,14 @@
 CXX = c++
 CXXFLAGS = -std=c++17 -Wall -Wextra -pedantic
 
-TARGET = metaprogramming
-SRC = metaprogramming.cpp
+TARGET = tests
+SRC = tests.cpp 
+HDR = metafunctions.hpp
 
 .PHONY: all
 all: $(TARGET)
 
-$(TARGET): $(SRC)
+$(TARGET): $(SRC) $(HDR)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
 
 .PHONY: run
@@ -20,10 +21,5 @@ clean:
 
 .PHONY: format
 format:
-	@clang-format -i *.cpp
-
-.PHONY: edit
-edit:
-	@vim $(SRC)
-
+	@clang-format -i *.cpp *.hpp
 
