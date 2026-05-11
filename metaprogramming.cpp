@@ -1,6 +1,5 @@
 #include <iostream>
 #include <tuple>
-#include <type_traits>
 
 // -----------------------------------------------------------------------------
 // integral_constant
